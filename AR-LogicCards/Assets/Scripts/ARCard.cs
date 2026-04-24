@@ -1,0 +1,73 @@
+using System.Collections.Generic;
+using UnityEngine;
+
+public enum CardType
+{
+    Input,
+    And,
+    Or,
+    Not,
+    Output
+}
+
+public class ARCard : MonoBehaviour
+{
+    [Header("Card Settings")]
+    public CardType cardType;
+    public bool currentValue = false; // ??????? ?????????? ???????? ?? ??????
+
+    [Header("Pins")]
+    public List<Pin> inputPins = new List<Pin>();
+    public List<Pin> outputPins = new List<Pin>();
+
+    // ??? ??????? ???? — ??????????? ?????? ???????? (0/1)
+    [Header("Input (optional)")]
+    public bool inputValue = false;
+
+    private void Start()
+    {
+        // ????????????? ???????? ????, ???? ?? ????????? ???????
+        if (inputPins.Count == 0 || outputPins.Count == 0)
+            FindPins();
+    }
+
+    private void FindPins()
+    {
+        Pin[] pins = GetComponentsInChildren<Pin>();
+        inputPins.Clear();
+        outputPins.Clear();
+        foreach (Pin pin in pins)
+        {
+            if (pin.pinType == PinType.Input)
+                inputPins.Add(pin);
+            else
+                outputPins.Add(pin);
+        }
+    }
+
+    // ???????? ??????? ??????? ???? ?? ???????
+    public Vector3 GetInputPinWorldPosition(int index)
+    {
+        if (index >= 0 && index < inputPins.Count)
+            return inputPins[index].transform.position;
+        return transform.position;
+    }
+
+    public Vector3 GetOutputPinWorldPosition(int index)
+    {
+        if (index >= 0 && index < outputPins.Count)
+            return outputPins[index].transform.position;
+        return transform.position;
+    }
+
+    // ???????? ???????? ??????? ????? (??? ?????)
+    public void ToggleInput()
+    {
+        if (cardType == CardType.Input)
+        {
+            inputValue = !inputValue;
+            currentValue = inputValue;
+            Debug.Log($"Input {name} changed to {currentValue}");
+        }
+    }
+}
