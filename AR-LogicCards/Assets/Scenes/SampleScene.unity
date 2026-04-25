@@ -395,7 +395,7 @@ MonoBehaviour:
   pinType: 0
   pinIndex: 0
   parentCard: {fileID: 1497055716}
-  defaultMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  defaultMaterial: {fileID: 2100000, guid: fc226930e8fad4c499969204cecfbc05, type: 2}
   selectedMaterial: {fileID: 2100000, guid: 5a73b10595b37864aac8d55f26b44cfe, type: 2}
 --- !u!1 &48806360
 GameObject:
@@ -849,7 +849,7 @@ MonoBehaviour:
   pinType: 0
   pinIndex: 0
   parentCard: {fileID: 396882591}
-  defaultMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  defaultMaterial: {fileID: 2100000, guid: fc226930e8fad4c499969204cecfbc05, type: 2}
   selectedMaterial: {fileID: 2100000, guid: 5a73b10595b37864aac8d55f26b44cfe, type: 2}
 --- !u!1 &555899404
 GameObject:
@@ -1406,7 +1406,7 @@ MonoBehaviour:
   pinType: 1
   pinIndex: 0
   parentCard: {fileID: 555899409}
-  defaultMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  defaultMaterial: {fileID: 2100000, guid: fc226930e8fad4c499969204cecfbc05, type: 2}
   selectedMaterial: {fileID: 2100000, guid: 5a73b10595b37864aac8d55f26b44cfe, type: 2}
 --- !u!1 &806495750
 GameObject:
@@ -1805,7 +1805,7 @@ MonoBehaviour:
   pinType: 1
   pinIndex: 0
   parentCard: {fileID: 31444008}
-  defaultMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  defaultMaterial: {fileID: 2100000, guid: fc226930e8fad4c499969204cecfbc05, type: 2}
   selectedMaterial: {fileID: 2100000, guid: 5a73b10595b37864aac8d55f26b44cfe, type: 2}
 --- !u!1 &1174432173
 GameObject:
@@ -2411,7 +2411,7 @@ MonoBehaviour:
   pinType: 0
   pinIndex: 1
   parentCard: {fileID: 1473736077}
-  defaultMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  defaultMaterial: {fileID: 2100000, guid: fc226930e8fad4c499969204cecfbc05, type: 2}
   selectedMaterial: {fileID: 2100000, guid: 5a73b10595b37864aac8d55f26b44cfe, type: 2}
 --- !u!1 &1387501864
 GameObject:
@@ -2541,7 +2541,7 @@ MonoBehaviour:
   pinType: 1
   pinIndex: 0
   parentCard: {fileID: 1473736077}
-  defaultMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  defaultMaterial: {fileID: 2100000, guid: fc226930e8fad4c499969204cecfbc05, type: 2}
   selectedMaterial: {fileID: 2100000, guid: 5a73b10595b37864aac8d55f26b44cfe, type: 2}
 --- !u!1 &1398549921
 GameObject:
@@ -2703,7 +2703,7 @@ MonoBehaviour:
   pinType: 0
   pinIndex: 0
   parentCard: {fileID: 1473736077}
-  defaultMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  defaultMaterial: {fileID: 2100000, guid: fc226930e8fad4c499969204cecfbc05, type: 2}
   selectedMaterial: {fileID: 2100000, guid: 5a73b10595b37864aac8d55f26b44cfe, type: 2}
 --- !u!1 &1473736073
 GameObject:
@@ -2985,7 +2985,7 @@ MonoBehaviour:
   pinType: 1
   pinIndex: 0
   parentCard: {fileID: 1497055716}
-  defaultMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  defaultMaterial: {fileID: 2100000, guid: fc226930e8fad4c499969204cecfbc05, type: 2}
   selectedMaterial: {fileID: 2100000, guid: 5a73b10595b37864aac8d55f26b44cfe, type: 2}
 --- !u!1 &1482613896
 GameObject:
@@ -3115,7 +3115,7 @@ MonoBehaviour:
   pinType: 1
   pinIndex: 0
   parentCard: {fileID: 1279491950}
-  defaultMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  defaultMaterial: {fileID: 2100000, guid: fc226930e8fad4c499969204cecfbc05, type: 2}
   selectedMaterial: {fileID: 2100000, guid: 5a73b10595b37864aac8d55f26b44cfe, type: 2}
 --- !u!1 &1497055712
 GameObject:
@@ -3541,7 +3541,7 @@ MonoBehaviour:
   pinType: 0
   pinIndex: 0
   parentCard: {fileID: 555899409}
-  defaultMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  defaultMaterial: {fileID: 2100000, guid: fc226930e8fad4c499969204cecfbc05, type: 2}
   selectedMaterial: {fileID: 2100000, guid: 5a73b10595b37864aac8d55f26b44cfe, type: 2}
 --- !u!1 &1776937283
 GameObject:
@@ -3671,7 +3671,7 @@ MonoBehaviour:
   pinType: 0
   pinIndex: 1
   parentCard: {fileID: 1497055716}
-  defaultMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  defaultMaterial: {fileID: 2100000, guid: fc226930e8fad4c499969204cecfbc05, type: 2}
   selectedMaterial: {fileID: 2100000, guid: 5a73b10595b37864aac8d55f26b44cfe, type: 2}
 --- !u!1 &1961876090
 GameObject:
