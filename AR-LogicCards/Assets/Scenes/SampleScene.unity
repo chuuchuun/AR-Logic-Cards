@@ -514,7 +514,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 344341873}
-  - component: {fileID: 344341874}
   m_Layer: 0
   m_Name: Output_pin
   m_TagString: Untagged
@@ -538,23 +537,6 @@ Transform:
   - {fileID: 743349014}
   m_Father: {fileID: 555899405}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &344341874
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 344341872}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c0f0cf4bb3629a45a1bdca9aaeb230d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Pin
-  pinType: 1
-  pinIndex: 0
-  parentCard: {fileID: 555899409}
-  defaultMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  selectedMaterial: {fileID: 2100000, guid: 5a73b10595b37864aac8d55f26b44cfe, type: 2}
 --- !u!1 &396882587
 GameObject:
   m_ObjectHideFlags: 0
@@ -1295,6 +1277,7 @@ GameObject:
   - component: {fileID: 743349017}
   - component: {fileID: 743349016}
   - component: {fileID: 743349015}
+  - component: {fileID: 743349018}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -1395,6 +1378,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 743349013}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &743349018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743349013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c0f0cf4bb3629a45a1bdca9aaeb230d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Pin
+  pinType: 1
+  pinIndex: 0
+  parentCard: {fileID: 555899409}
+  defaultMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  selectedMaterial: {fileID: 2100000, guid: 5a73b10595b37864aac8d55f26b44cfe, type: 2}
 --- !u!1 &806495750
 GameObject:
   m_ObjectHideFlags: 0
@@ -1407,6 +1407,8 @@ GameObject:
   - component: {fileID: 806495752}
   - component: {fileID: 806495754}
   - component: {fileID: 806495755}
+  - component: {fileID: 806495756}
+  - component: {fileID: 806495757}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1465,6 +1467,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ee380e14aa4efd49a3c1266db628ab5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RaycastTest
+--- !u!114 &806495756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806495750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3839c063eb820da449cfedae7276aaa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WireVisualizer
+  wireMaterial: {fileID: 2100000, guid: 5a73b10595b37864aac8d55f26b44cfe, type: 2}
+  wireWidth: 0.05
+--- !u!114 &806495757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806495750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16f94e7278fb1fb45a3b4875cf09af56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WireRemovalHandler
 --- !u!1 &1010548930
 GameObject:
   m_ObjectHideFlags: 0
@@ -3356,6 +3384,7 @@ GameObject:
   - component: {fileID: 1721308466}
   - component: {fileID: 1721308465}
   - component: {fileID: 1721308464}
+  - component: {fileID: 1721308467}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -3456,6 +3485,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1721308462}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1721308467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721308462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c0f0cf4bb3629a45a1bdca9aaeb230d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Pin
+  pinType: 0
+  pinIndex: 0
+  parentCard: {fileID: 555899409}
+  defaultMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  selectedMaterial: {fileID: 2100000, guid: 5a73b10595b37864aac8d55f26b44cfe, type: 2}
 --- !u!1 &1776937283
 GameObject:
   m_ObjectHideFlags: 0
@@ -3595,7 +3641,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1961876091}
-  - component: {fileID: 1961876092}
   m_Layer: 0
   m_Name: Input_pin_0
   m_TagString: Untagged
@@ -3619,23 +3664,6 @@ Transform:
   - {fileID: 1721308463}
   m_Father: {fileID: 555899405}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1961876092
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1961876090}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c0f0cf4bb3629a45a1bdca9aaeb230d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Pin
-  pinType: 0
-  pinIndex: 0
-  parentCard: {fileID: 555899409}
-  defaultMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  selectedMaterial: {fileID: 2100000, guid: 5a73b10595b37864aac8d55f26b44cfe, type: 2}
 --- !u!1 &2047938441
 GameObject:
   m_ObjectHideFlags: 0
