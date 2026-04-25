@@ -1,0 +1,5 @@
+C:/Users/alla/Documents/GitHub/AR-Logic-Cards/AR-LogicCards/.utmp/RelWithDebInfo/324h3j3b/arm64-v8a/CMakeFiles/edit_cache.dir
+C:/Users/alla/Documents/GitHub/AR-Logic-Cards/AR-LogicCards/.utmp/RelWithDebInfo/324h3j3b/arm64-v8a/CMakeFiles/rebuild_cache.dir
+C:/Users/alla/Documents/GitHub/AR-Logic-Cards/AR-LogicCards/.utmp/RelWithDebInfo/324h3j3b/arm64-v8a/GameActivity/CMakeFiles/game.dir
+C:/Users/alla/Documents/GitHub/AR-Logic-Cards/AR-LogicCards/.utmp/RelWithDebInfo/324h3j3b/arm64-v8a/GameActivity/CMakeFiles/edit_cache.dir
+C:/Users/alla/Documents/GitHub/AR-Logic-Cards/AR-LogicCards/.utmp/RelWithDebInfo/324h3j3b/arm64-v8a/GameActivity/CMakeFiles/rebuild_cache.dir
