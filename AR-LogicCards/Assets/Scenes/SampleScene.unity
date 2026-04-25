@@ -1408,6 +1408,7 @@ GameObject:
   - component: {fileID: 806495754}
   - component: {fileID: 806495755}
   - component: {fileID: 806495756}
+  - component: {fileID: 806495757}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1479,7 +1480,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WireVisualizer
   wireMaterial: {fileID: 2100000, guid: 5a73b10595b37864aac8d55f26b44cfe, type: 2}
-  wireWidth: 0.01
+  wireWidth: 0.05
+--- !u!114 &806495757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806495750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16f94e7278fb1fb45a3b4875cf09af56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WireRemovalHandler
 --- !u!1 &1010548930
 GameObject:
   m_ObjectHideFlags: 0

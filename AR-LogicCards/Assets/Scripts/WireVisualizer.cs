@@ -27,8 +27,6 @@ public class WireVisualizer : MonoBehaviour
 
     private void CreateWireVisual(Wire wire)
     {
-        if (wire == null) return;
-
         GameObject wireObj = new GameObject($"Wire_{wire.sourcePin.parentCard.name}_{wire.targetPin.parentCard.name}");
         wireObj.transform.SetParent(transform);
 
@@ -36,17 +34,17 @@ public class WireVisualizer : MonoBehaviour
         lr.startWidth = wireWidth;
         lr.endWidth = wireWidth;
         lr.positionCount = 2;
-
-        if (wireMaterial == null)
-            lr.material = new Material(Shader.Find("Sprites/Default"));
-        else
-            lr.material = wireMaterial;
-
+        lr.material = wireMaterial ?? new Material(Shader.Find("Sprites/Default"));
         lr.startColor = Color.gray;
         lr.endColor = Color.gray;
 
+        BoxCollider collider = wireObj.AddComponent<BoxCollider>();
+        collider.isTrigger = true; 
+
         wire.visual = lr;
-        UpdateWirePosition(wire);
+        wire.collider = collider;   
+
+        UpdateWirePosition(wire); 
     }
 
     private void DestroyWireVisual(Wire wire)
@@ -70,7 +68,19 @@ public class WireVisualizer : MonoBehaviour
     private void UpdateWirePosition(Wire wire)
     {
         if (wire.sourcePin == null || wire.targetPin == null) return;
-        wire.visual.SetPosition(0, wire.sourcePin.transform.position);
-        wire.visual.SetPosition(1, wire.targetPin.transform.position);
+
+        Vector3 start = wire.sourcePin.transform.position;
+        Vector3 end = wire.targetPin.transform.position;
+        wire.visual.SetPosition(0, start);
+        wire.visual.SetPosition(1, end);
+
+        if (wire.collider != null)
+        {
+            Vector3 dir = end - start;
+            float length = dir.magnitude;
+            wire.collider.transform.position = start + dir / 2;
+            wire.collider.transform.rotation = Quaternion.LookRotation(dir);
+            wire.collider.size = new Vector3(wireWidth, wireWidth, length);
+        }
     }
 }
