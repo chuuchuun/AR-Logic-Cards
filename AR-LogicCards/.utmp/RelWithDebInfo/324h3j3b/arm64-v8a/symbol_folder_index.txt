@@ -1,0 +1,1 @@
+C:\Users\alla\Documents\GitHub\AR-Logic-Cards\AR-LogicCards\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\build\intermediates\cxx\RelWithDebInfo\324h3j3b\obj\arm64-v8a

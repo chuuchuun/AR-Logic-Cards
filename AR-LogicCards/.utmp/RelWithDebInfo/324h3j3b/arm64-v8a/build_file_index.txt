@@ -1,0 +1,2 @@
+C:\Users\alla\Documents\GitHub\AR-Logic-Cards\AR-LogicCards\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\CMakeLists.txt
+C:\Users\alla\Documents\GitHub\AR-Logic-Cards\AR-LogicCards\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\CMakeLists.txt

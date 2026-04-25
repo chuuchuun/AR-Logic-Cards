@@ -27,7 +27,13 @@ public class Pin : MonoBehaviour
 
     public void SetSelected(bool selected)
     {
-        if (_renderer != null && selectedMaterial != null && defaultMaterial != null)
+        Debug.Log($"SetSelected called on {name}, selected={selected}");
+        if (_renderer == null) Debug.LogError("Renderer is null on " + name);
+        if (selectedMaterial == null) Debug.LogError("selectedMaterial is null on " + name);
+        if (_renderer != null && selectedMaterial != null)
+        {
             _renderer.material = selected ? selectedMaterial : defaultMaterial;
+            Debug.Log("Material changed");
+        }
     }
 }
