@@ -13,4 +13,7 @@ public class LevelData : ScriptableObject
     // Optional: names of cards that must be present (e.g., "Input_zero_card", "NOT_card")
     public string[] requiredCardNames;
     // If you want more precise validation, you can add expected truth table, but we'll keep simple.
+
+    [TextArea(2, 4)]
+    public string hint = "No hint available.";
 }

@@ -43,6 +43,17 @@ public class GestureInputHandler_New : MonoBehaviour
             Pin pin = hit.collider.GetComponent<Pin>();
             if (pin == null) return;
 
+            // --- NEW: Check if the card is allowed in the current level ---
+            if (LevelManager.Instance != null && !LevelManager.Instance.IsCardAllowed(pin.parentCard.name))
+            {
+                string allowedList = LevelManager.Instance.GetAllowedCardsList();
+                UIManager.Instance?.ShowInvalidCardsPopup(
+                    $"Card '{pin.parentCard.name}' is not allowed in this level.\n\nAllowed cards for this level:\n{allowedList}"
+                );
+                return; // Block further interaction with this card
+            }
+            // ---------------------------------------------------------------
+
             if (pin.pinType == PinType.Output)
             {
                 _selectedOutputPin = pin;
@@ -58,7 +69,10 @@ public class GestureInputHandler_New : MonoBehaviour
                     _selectedOutputPin.SetSelected(false);
                     _selectedOutputPin = null;
                 }
-                else Debug.Log("Select an output first");
+                else
+                {
+                    Debug.Log("Select an output first");
+                }
             }
         }
         else
@@ -74,5 +88,6 @@ public class GestureInputHandler_New : MonoBehaviour
 
     private void ClearAllHighlights()
     {
+        // Optional: implement clearing visual highlights if you have multiple pins
     }
 }

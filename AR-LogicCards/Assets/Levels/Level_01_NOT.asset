@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Level_01_NOT
   m_EditorClassIdentifier: Assembly-CSharp::LevelData
   levelName: NOT Gate
-  description: 'The output must be 1 (LED on) whenever the single input is 0.
-
-'
+  description: The output must be 1 (LED on) when the single input is 0.
   successMessage: Correct! NOT inverts the input.
   requiredCardNames:
   - Input_zero_card
   - NOT_card
   - Output_card
+  hint: Try connecting the only input directly to the NOT gate, and the NOT gate
+    to the output.

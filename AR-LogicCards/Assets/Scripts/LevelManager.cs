@@ -20,6 +20,28 @@ public class LevelManager : MonoBehaviour
         LoadLevel(currentLevelIndex);
     }
 
+    public bool IsCardAllowed(string cardName)
+    {
+        if (levels == null || currentLevelIndex >= levels.Count) return false;
+        LevelData level = levels[currentLevelIndex];
+        if (level.requiredCardNames == null || level.requiredCardNames.Length == 0)
+            return true; // no restriction
+        return System.Array.Exists(level.requiredCardNames, name => name == cardName);
+    }
+
+    public string GetAllowedCardsList()
+    {
+        LevelData level = levels[currentLevelIndex];
+        if (level.requiredCardNames == null) return "";
+        return string.Join(", ", level.requiredCardNames);
+    }
+
+    public string GetCurrentLevelHint()
+    {
+        if (levels == null || currentLevelIndex >= levels.Count) return "No hint.";
+        return levels[currentLevelIndex].hint;
+    }
+
     public void LoadLevel(int index)
     {
         if (index < 0 || index >= levels.Count) return;
@@ -42,9 +64,33 @@ public class LevelManager : MonoBehaviour
         else
             Debug.Log("All levels completed!");
     }
+    public bool ValidateAllowedCards(out string invalidList)
+    {
+        invalidList = "";
+        LevelData currentLevel = levels[currentLevelIndex];
+        if (currentLevel.requiredCardNames == null || currentLevel.requiredCardNames.Length == 0)
+            return true;
+
+        HashSet<string> allowedSet = new HashSet<string>(currentLevel.requiredCardNames);
+        ARCard[] allCards = FindObjectsOfType<ARCard>();
+        List<string> invalidCards = new List<string>();
+
+        foreach (ARCard card in allCards)
+        {
+            if (card.IsTracked && !allowedSet.Contains(card.name))
+                invalidCards.Add(card.name);
+        }
+
+        if (invalidCards.Count > 0)
+        {
+            invalidList = string.Join(", ", invalidCards);
+            return false;
+        }
+        return true;
+    }
 
     public void CheckLevelCompletion()
-    {
+    { 
         if (levels.Count == 0) return;
         LevelData currentLevel = levels[currentLevelIndex];
 
