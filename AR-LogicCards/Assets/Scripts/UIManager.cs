@@ -7,7 +7,7 @@ public class UIManager : MonoBehaviour
     public static UIManager Instance { get; private set; }
 
     [Header("UI Elements")]
-    public GameObject topBar;                     // assign the top bar GameObject
+    public GameObject topBar;
     public TextMeshProUGUI taskText;
     public Button levelSelectionButton;
     public GameObject levelSelectionPanel;
@@ -28,18 +28,40 @@ public class UIManager : MonoBehaviour
     public Button closeAllowedPopupButton;
 
     [Header("Hamburger Menu")]
-    public Button hamburgerButton;               // the ☰ button
-    public GameObject hamburgerMenuPanel;        // panel that appears
-    public Button resetWiresMenuButton;          // button inside menu
-    public Button hintMenuButton;                // button inside menu
-    public Button allowedCardsMenuButton;        // button inside menu
+    public Button hamburgerButton;
+    public GameObject hamburgerMenuPanel;
+    public Button resetWiresMenuButton;
+    public Button hintMenuButton;
+    public Button allowedCardsMenuButton;
 
     [Header("Hint Popup")]
     public GameObject hintPopup;
     public TextMeshProUGUI hintText;
     public Button closeHintButton;
 
+    [Header("Generic Message Popup")]
+    public GameObject messagePopup;
+    public TextMeshProUGUI messageTitle;
+    public TextMeshProUGUI messageBody;
+    public Button closeMessageButton;
+
     private bool isMenuOpen = false;
+
+    public void ShowMessagePopup(string title, string body)
+    {
+        if (messagePopup != null)
+        {
+            messageTitle.text = title;
+            messageBody.text = body;
+            messagePopup.SetActive(true);
+        }
+    }
+
+    public void HideMessagePopup()
+    {
+        if (messagePopup != null)
+            messagePopup.SetActive(false);
+    }
 
     private void Awake()
     {
@@ -49,63 +71,65 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-
+        // Level selection button
         if (levelSelectionButton != null)
             levelSelectionButton.onClick.AddListener(ToggleLevelSelection);
 
         if (levelSelectionPanel != null)
             levelSelectionPanel.SetActive(false);
 
+        // Level complete popup
         if (levelCompletePopup != null)
             levelCompletePopup.SetActive(false);
-
         if (nextLevelButton != null)
             nextLevelButton.onClick.AddListener(OnNextLevelClicked);
 
+        // Invalid cards popup
         if (closeInvalidPopupButton != null)
             closeInvalidPopupButton.onClick.AddListener(HideInvalidCardsPopup);
-
         if (invalidCardsPopup != null)
             invalidCardsPopup.SetActive(false);
 
+        // Allowed cards popup (button on top bar)
         if (allowedCardsButton != null)
             allowedCardsButton.onClick.AddListener(ShowAllowedCardsPopup);
-
         if (closeAllowedPopupButton != null)
             closeAllowedPopupButton.onClick.AddListener(HideAllowedCardsPopup);
-
         if (allowedCardsPopup != null)
             allowedCardsPopup.SetActive(false);
 
+        // Hamburger menu
         if (hamburgerButton != null)
             hamburgerButton.onClick.AddListener(ToggleHamburgerMenu);
-
         if (resetWiresMenuButton != null)
             resetWiresMenuButton.onClick.AddListener(() => {
                 ResetAllWires();
                 CloseHamburgerMenu();
             });
-
         if (hintMenuButton != null)
             hintMenuButton.onClick.AddListener(() => {
                 ShowHintPopup();
                 CloseHamburgerMenu();
             });
-
         if (allowedCardsMenuButton != null)
             allowedCardsMenuButton.onClick.AddListener(() => {
                 ShowAllowedCardsPopup();
                 CloseHamburgerMenu();
             });
+        if (hamburgerMenuPanel != null)
+            hamburgerMenuPanel.SetActive(false);
 
+        // Hint popup
         if (closeHintButton != null)
             closeHintButton.onClick.AddListener(HideHintPopup);
-
         if (hintPopup != null)
             hintPopup.SetActive(false);
 
-        if (hamburgerMenuPanel != null)
-            hamburgerMenuPanel.SetActive(false);
+        // Generic message popup
+        if (closeMessageButton != null)
+            closeMessageButton.onClick.AddListener(HideMessagePopup);
+        if (messagePopup != null)
+            messagePopup.SetActive(false);
     }
 
     private void ToggleHamburgerMenu()
@@ -125,7 +149,6 @@ public class UIManager : MonoBehaviour
     private void ShowHintPopup()
     {
         if (hintPopup == null) return;
-        // Get current level hint from LevelManager
         if (LevelManager.Instance != null)
         {
             string hint = LevelManager.Instance.GetCurrentLevelHint();
@@ -188,12 +211,10 @@ public class UIManager : MonoBehaviour
     {
         bool isActive = !levelSelectionPanel.activeSelf;
         levelSelectionPanel.SetActive(isActive);
-
         if (topBar != null)
             topBar.SetActive(!isActive);
     }
 
-    // Call this method when you need to close the level selection panel externally
     public void CloseLevelSelection()
     {
         if (levelSelectionPanel != null && levelSelectionPanel.activeSelf)

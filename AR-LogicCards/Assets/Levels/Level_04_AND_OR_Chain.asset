@@ -10,14 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b475a9178ba906440997382f3116eb6c, type: 3}
-  m_Name: Level_02_AND
+  m_Name: Level_04_AND_OR_Chain
   m_EditorClassIdentifier: Assembly-CSharp::LevelData
-  levelName: AND Gate
-  description: 'The output must be 1 only when both  inputs are 1. '
-  successMessage: Great! AND gives 1 only when all inputs are 1.
+  levelName: AND-OR Chain
+  description: With three inputs all set to 1, the output must be 1.
+  successMessage: Well done! You combined AND and OR correctly.
   requiredCardNames:
+  - Input_zero_card
   - Input_one_card
   - Input_one_card_2
   - AND_card
+  - OR_card
   - Output_card
-  hint: Connect both inputs to the AND gate, then the AND gate to the output.
+  hint: First compute (A AND B) using an AND gate, then OR that result with C.
