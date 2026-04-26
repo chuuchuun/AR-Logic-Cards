@@ -240,7 +240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ARCard
   cardType: 0
-  currentValue: 0
+  currentValue: 1
   inputPins: []
   outputPins:
   - {fileID: 1173802775}
