@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig>
   <Tracking>
+    <ImageTarget name="input_one_card" size="1.000000 1.414634" />
+    <ImageTarget name="input_zero_card" size="1.000000 1.405622" />
     <ImageTarget name="output_card" size="1.000000 1.409091" />
     <ImageTarget name="and_card" size="1.000000 1.421320" />
     <ImageTarget name="not_card" size="1.000000 1.412658" />
-    <ImageTarget name="input_zero_card" size="1.000000 1.423858" />
-    <ImageTarget name="input_one_card" size="1.000000 1.411616" />
     <ImageTarget name="or_card" size="1.000000 1.416244" />
   </Tracking>
 </QCARConfig>

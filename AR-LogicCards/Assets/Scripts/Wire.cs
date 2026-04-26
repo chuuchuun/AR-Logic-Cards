@@ -1,7 +1,6 @@
-using System;
 using UnityEngine;
 
-[Serializable]
+[System.Serializable]
 public class Wire
 {
     public Pin sourcePin;
@@ -14,5 +13,6 @@ public class Wire
         sourcePin = source;
         targetPin = target;
         visual = null;
+        collider = null;
     }
 }

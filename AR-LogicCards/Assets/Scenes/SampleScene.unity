@@ -240,10 +240,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ARCard
   cardType: 0
-  currentValue: 0
+  currentValue: 1
   inputPins: []
-  outputPins: []
-  inputValue: 0
+  outputPins:
+  - {fileID: 1173802775}
+  inputValue: 1
+  ledRenderer: {fileID: 0}
+  ledOnMaterial: {fileID: 0}
+  ledOffMaterial: {fileID: 0}
 --- !u!114 &31444009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -391,7 +395,7 @@ MonoBehaviour:
   pinType: 0
   pinIndex: 0
   parentCard: {fileID: 1497055716}
-  defaultMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  defaultMaterial: {fileID: 2100000, guid: fc226930e8fad4c499969204cecfbc05, type: 2}
   selectedMaterial: {fileID: 2100000, guid: 5a73b10595b37864aac8d55f26b44cfe, type: 2}
 --- !u!1 &48806360
 GameObject:
@@ -659,9 +663,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ARCard
   cardType: 4
   currentValue: 0
-  inputPins: []
+  inputPins:
+  - {fileID: 539093229}
   outputPins: []
   inputValue: 0
+  ledRenderer: {fileID: 2062927914}
+  ledOnMaterial: {fileID: 2100000, guid: 5a73b10595b37864aac8d55f26b44cfe, type: 2}
+  ledOffMaterial: {fileID: 2100000, guid: 5a7ec74c7e112a14a947ad4db778a07e, type: 2}
 --- !u!114 &396882592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -841,7 +849,7 @@ MonoBehaviour:
   pinType: 0
   pinIndex: 0
   parentCard: {fileID: 396882591}
-  defaultMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  defaultMaterial: {fileID: 2100000, guid: fc226930e8fad4c499969204cecfbc05, type: 2}
   selectedMaterial: {fileID: 2100000, guid: 5a73b10595b37864aac8d55f26b44cfe, type: 2}
 --- !u!1 &555899404
 GameObject:
@@ -966,9 +974,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ARCard
   cardType: 3
   currentValue: 0
-  inputPins: []
-  outputPins: []
+  inputPins:
+  - {fileID: 1721308467}
+  outputPins:
+  - {fileID: 743349018}
   inputValue: 0
+  ledRenderer: {fileID: 0}
+  ledOnMaterial: {fileID: 0}
+  ledOffMaterial: {fileID: 0}
 --- !u!114 &555899410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1393,7 +1406,7 @@ MonoBehaviour:
   pinType: 1
   pinIndex: 0
   parentCard: {fileID: 555899409}
-  defaultMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  defaultMaterial: {fileID: 2100000, guid: fc226930e8fad4c499969204cecfbc05, type: 2}
   selectedMaterial: {fileID: 2100000, guid: 5a73b10595b37864aac8d55f26b44cfe, type: 2}
 --- !u!1 &806495750
 GameObject:
@@ -1409,6 +1422,7 @@ GameObject:
   - component: {fileID: 806495755}
   - component: {fileID: 806495756}
   - component: {fileID: 806495757}
+  - component: {fileID: 806495758}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1479,7 +1493,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3839c063eb820da449cfedae7276aaa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WireVisualizer
-  wireMaterial: {fileID: 2100000, guid: 5a73b10595b37864aac8d55f26b44cfe, type: 2}
   wireWidth: 0.05
 --- !u!114 &806495757
 MonoBehaviour:
@@ -1493,6 +1506,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16f94e7278fb1fb45a3b4875cf09af56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WireRemovalHandler
+--- !u!114 &806495758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806495750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c74f5d25c93d3b54f82c6ff21351193d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CircuitCalculator
 --- !u!1 &1010548930
 GameObject:
   m_ObjectHideFlags: 0
@@ -1780,7 +1805,7 @@ MonoBehaviour:
   pinType: 1
   pinIndex: 0
   parentCard: {fileID: 31444008}
-  defaultMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  defaultMaterial: {fileID: 2100000, guid: fc226930e8fad4c499969204cecfbc05, type: 2}
   selectedMaterial: {fileID: 2100000, guid: 5a73b10595b37864aac8d55f26b44cfe, type: 2}
 --- !u!1 &1174432173
 GameObject:
@@ -2113,8 +2138,12 @@ MonoBehaviour:
   cardType: 0
   currentValue: 0
   inputPins: []
-  outputPins: []
-  inputValue: 0
+  outputPins:
+  - {fileID: 1482613901}
+  inputValue: 1
+  ledRenderer: {fileID: 0}
+  ledOnMaterial: {fileID: 0}
+  ledOffMaterial: {fileID: 0}
 --- !u!114 &1279491951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2382,7 +2411,7 @@ MonoBehaviour:
   pinType: 0
   pinIndex: 1
   parentCard: {fileID: 1473736077}
-  defaultMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  defaultMaterial: {fileID: 2100000, guid: fc226930e8fad4c499969204cecfbc05, type: 2}
   selectedMaterial: {fileID: 2100000, guid: 5a73b10595b37864aac8d55f26b44cfe, type: 2}
 --- !u!1 &1387501864
 GameObject:
@@ -2512,7 +2541,7 @@ MonoBehaviour:
   pinType: 1
   pinIndex: 0
   parentCard: {fileID: 1473736077}
-  defaultMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  defaultMaterial: {fileID: 2100000, guid: fc226930e8fad4c499969204cecfbc05, type: 2}
   selectedMaterial: {fileID: 2100000, guid: 5a73b10595b37864aac8d55f26b44cfe, type: 2}
 --- !u!1 &1398549921
 GameObject:
@@ -2674,7 +2703,7 @@ MonoBehaviour:
   pinType: 0
   pinIndex: 0
   parentCard: {fileID: 1473736077}
-  defaultMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  defaultMaterial: {fileID: 2100000, guid: fc226930e8fad4c499969204cecfbc05, type: 2}
   selectedMaterial: {fileID: 2100000, guid: 5a73b10595b37864aac8d55f26b44cfe, type: 2}
 --- !u!1 &1473736073
 GameObject:
@@ -2800,9 +2829,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ARCard
   cardType: 2
   currentValue: 0
-  inputPins: []
-  outputPins: []
+  inputPins:
+  - {fileID: 1437445060}
+  - {fileID: 1341740570}
+  outputPins:
+  - {fileID: 1387501869}
   inputValue: 0
+  ledRenderer: {fileID: 0}
+  ledOnMaterial: {fileID: 0}
+  ledOffMaterial: {fileID: 0}
 --- !u!114 &1473736078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2950,7 +2985,7 @@ MonoBehaviour:
   pinType: 1
   pinIndex: 0
   parentCard: {fileID: 1497055716}
-  defaultMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  defaultMaterial: {fileID: 2100000, guid: fc226930e8fad4c499969204cecfbc05, type: 2}
   selectedMaterial: {fileID: 2100000, guid: 5a73b10595b37864aac8d55f26b44cfe, type: 2}
 --- !u!1 &1482613896
 GameObject:
@@ -3080,7 +3115,7 @@ MonoBehaviour:
   pinType: 1
   pinIndex: 0
   parentCard: {fileID: 1279491950}
-  defaultMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  defaultMaterial: {fileID: 2100000, guid: fc226930e8fad4c499969204cecfbc05, type: 2}
   selectedMaterial: {fileID: 2100000, guid: 5a73b10595b37864aac8d55f26b44cfe, type: 2}
 --- !u!1 &1497055712
 GameObject:
@@ -3206,9 +3241,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ARCard
   cardType: 1
   currentValue: 0
-  inputPins: []
-  outputPins: []
+  inputPins:
+  - {fileID: 41129597}
+  - {fileID: 1776937288}
+  outputPins:
+  - {fileID: 1475589148}
   inputValue: 0
+  ledRenderer: {fileID: 0}
+  ledOnMaterial: {fileID: 0}
+  ledOffMaterial: {fileID: 0}
 --- !u!114 &1497055717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3500,7 +3541,7 @@ MonoBehaviour:
   pinType: 0
   pinIndex: 0
   parentCard: {fileID: 555899409}
-  defaultMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  defaultMaterial: {fileID: 2100000, guid: fc226930e8fad4c499969204cecfbc05, type: 2}
   selectedMaterial: {fileID: 2100000, guid: 5a73b10595b37864aac8d55f26b44cfe, type: 2}
 --- !u!1 &1776937283
 GameObject:
@@ -3630,7 +3671,7 @@ MonoBehaviour:
   pinType: 0
   pinIndex: 1
   parentCard: {fileID: 1497055716}
-  defaultMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  defaultMaterial: {fileID: 2100000, guid: fc226930e8fad4c499969204cecfbc05, type: 2}
   selectedMaterial: {fileID: 2100000, guid: 5a73b10595b37864aac8d55f26b44cfe, type: 2}
 --- !u!1 &1961876090
 GameObject:

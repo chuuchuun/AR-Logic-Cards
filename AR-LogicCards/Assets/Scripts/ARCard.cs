@@ -12,30 +12,36 @@ public enum CardType
 
 public class ARCard : MonoBehaviour
 {
-    [Header("Card Settings")]
+    [Header("Card Type")]
     public CardType cardType;
-    public bool currentValue = false; // ??????? ?????????? ???????? ?? ??????
+
+    [Header("Logic Value")]
+    public bool currentValue = false;
 
     [Header("Pins")]
     public List<Pin> inputPins = new List<Pin>();
     public List<Pin> outputPins = new List<Pin>();
 
-    // ??? ??????? ???? — ??????????? ?????? ???????? (0/1)
-    [Header("Input (optional)")]
-    public bool inputValue = false;
+    [Header("Input only")]
+    public bool inputValue = false; 
 
-    private void Start()
+    [Header("Output LED")]
+    public Renderer ledRenderer;
+    public Material ledOnMaterial;
+    public Material ledOffMaterial;
+
+    void Start()
     {
-        // ????????????? ???????? ????, ???? ?? ????????? ???????
-        if (inputPins.Count == 0 || outputPins.Count == 0)
-            FindPins();
+        FindPins();
+        if (cardType == CardType.Output)
+            UpdateLedVisual();
     }
 
     private void FindPins()
     {
-        Pin[] pins = GetComponentsInChildren<Pin>();
         inputPins.Clear();
         outputPins.Clear();
+        Pin[] pins = GetComponentsInChildren<Pin>();
         foreach (Pin pin in pins)
         {
             if (pin.pinType == PinType.Input)
@@ -45,29 +51,23 @@ public class ARCard : MonoBehaviour
         }
     }
 
-    // ???????? ??????? ??????? ???? ?? ???????
-    public Vector3 GetInputPinWorldPosition(int index)
+    public void SetInputValue(bool value)
     {
-        if (index >= 0 && index < inputPins.Count)
-            return inputPins[index].transform.position;
-        return transform.position;
+        if (cardType != CardType.Input) return;
+        inputValue = value;
+        currentValue = value;
+        CircuitCalculator.Instance?.Recalculate();
     }
 
-    public Vector3 GetOutputPinWorldPosition(int index)
+    public void UpdateLedVisual()
     {
-        if (index >= 0 && index < outputPins.Count)
-            return outputPins[index].transform.position;
-        return transform.position;
-    }
-
-    // ???????? ???????? ??????? ????? (??? ?????)
-    public void ToggleInput()
-    {
-        if (cardType == CardType.Input)
-        {
-            inputValue = !inputValue;
-            currentValue = inputValue;
-            Debug.Log($"Input {name} changed to {currentValue}");
-        }
+        if (ledRenderer == null) return;
+        if (currentValue && ledOnMaterial != null)
+            ledRenderer.material = ledOnMaterial;
+        else if (!currentValue && ledOffMaterial != null)
+            ledRenderer.material = ledOffMaterial;
+        else
+            ledRenderer.material.color = currentValue ? Color.green : Color.red;
+        Debug.Log($"LED {name} set to {currentValue}");
     }
 }
