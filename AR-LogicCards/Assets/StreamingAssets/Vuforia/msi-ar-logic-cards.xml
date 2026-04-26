@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig>
   <Tracking>
+    <ImageTarget name="input_zero_card" size="1.000000 1.399038" />
+    <ImageTarget name="not_card" size="1.000000 1.405797" />
     <ImageTarget name="input_one_card_2" size="1.000000 1.415459" />
     <ImageTarget name="and_card_2" size="1.000000 1.402844" />
     <ImageTarget name="input_one_card_4" size="1.000000 1.418269" />
     <ImageTarget name="input_one_card_3" size="1.000000 1.411483" />
     <ImageTarget name="input_one_card" size="1.000000 1.414634" />
-    <ImageTarget name="input_zero_card" size="1.000000 1.405622" />
     <ImageTarget name="output_card" size="1.000000 1.409091" />
     <ImageTarget name="and_card" size="1.000000 1.421320" />
-    <ImageTarget name="not_card" size="1.000000 1.412658" />
     <ImageTarget name="or_card" size="1.000000 1.416244" />
   </Tracking>
 </QCARConfig>

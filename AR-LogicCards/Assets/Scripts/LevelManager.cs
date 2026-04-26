@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour
@@ -8,6 +8,8 @@ public class LevelManager : MonoBehaviour
     [Header("Levels")]
     public List<LevelData> levels;
     public int currentLevelIndex = 0;
+
+    private bool levelCompleted = false;   // prevent re‑evaluation after completion
 
     private void Awake()
     {
@@ -52,8 +54,15 @@ public class LevelManager : MonoBehaviour
             ConnectionManager.Instance.RemoveAllWires();
 
         if (UIManager.Instance != null)
+        {
             UIManager.Instance.SetTask(level.description);
+            string allowed = GetAllowedCardsList();
+            UIManager.Instance.ShowLevelInfoPopup(level.levelName, allowed, () => {
+                Debug.Log($"Starting level {level.levelName}");
+            });
+        }
 
+        levelCompleted = false;   // reset completion flag for new level
         Debug.Log($"Loaded level {currentLevelIndex}: {level.levelName}");
     }
 
@@ -85,7 +94,7 @@ public class LevelManager : MonoBehaviour
         else
         {
             Debug.Log("All levels completed!");
-            UIManager.Instance?.ShowMessagePopup("Congratulations!", "You finished all levels!");
+            UIManager.Instance?.ShowLevelComplete("Congratulations! You finished all levels!");
         }
     }
 
@@ -116,12 +125,15 @@ public class LevelManager : MonoBehaviour
 
     public void CheckLevelCompletion()
     {
+        if (levelCompleted) return;               // already finished this level
         if (levels.Count == 0) return;
         LevelData currentLevel = levels[currentLevelIndex];
 
+        // 2 – output must be true
         ARCard output = FindOutputCard();
         if (output == null || !output.currentValue) return;
 
+        // 3 – all required cards must be used
         if (!AreAllRequiredCardsUsed())
         {
             UIManager.Instance?.ShowMessagePopup("Missing Required Cards",
@@ -129,8 +141,9 @@ public class LevelManager : MonoBehaviour
             return;
         }
 
+        // Level complete – prevent further checks
+        levelCompleted = true;
         UIManager.Instance?.ShowLevelComplete(levels[currentLevelIndex].successMessage);
-        Invoke(nameof(LoadNextLevel), 2f);
     }
 
     private ARCard FindOutputCard()

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
@@ -44,6 +45,31 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI messageTitle;
     public TextMeshProUGUI messageBody;
     public Button closeMessageButton;
+
+    [Header("Level Info Popup")]
+    public GameObject levelInfoPopup;
+    public TextMeshProUGUI levelInfoTitle;
+    public TextMeshProUGUI levelInfoMessage;
+    public Button levelInfoContinueButton;
+
+    private Action onLevelInfoContinue;
+
+    public void ShowLevelInfoPopup(string levelName, string allowedCards, Action onContinue)
+    {
+        if (levelInfoPopup != null)
+        {
+            levelInfoTitle.text = levelName;
+            levelInfoMessage.text = $"Allowed cards:\n{allowedCards.Replace(',', '\n')}";
+            onLevelInfoContinue = onContinue;
+            levelInfoPopup.SetActive(true);
+        }
+    }
+
+    public void HideLevelInfoPopup()
+    {
+        if (levelInfoPopup != null)
+            levelInfoPopup.SetActive(false);
+    }
 
     private bool isMenuOpen = false;
 
@@ -130,6 +156,14 @@ public class UIManager : MonoBehaviour
             closeMessageButton.onClick.AddListener(HideMessagePopup);
         if (messagePopup != null)
             messagePopup.SetActive(false);
+
+        if (levelInfoContinueButton != null)
+            levelInfoContinueButton.onClick.AddListener(() => {
+                HideLevelInfoPopup();
+                onLevelInfoContinue?.Invoke();
+            });
+        if (levelInfoPopup != null)
+            levelInfoPopup.SetActive(false);
     }
 
     private void ToggleHamburgerMenu()
