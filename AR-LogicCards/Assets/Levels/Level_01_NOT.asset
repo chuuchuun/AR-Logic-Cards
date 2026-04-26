@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b475a9178ba906440997382f3116eb6c, type: 3}
+  m_Name: Level_01_NOT
+  m_EditorClassIdentifier: Assembly-CSharp::LevelData
+  levelName: NOT Gate
+  description: The output must be 1 (LED on) when the single input is 0.
+  successMessage: Correct! NOT inverts the input.
+  requiredCardNames:
+  - Input_zero_card
+  - NOT_card
+  - Output_card
+  hint: Try connecting the only input directly to the NOT gate, and the NOT gate
+    to the output.

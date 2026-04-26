@@ -25,6 +25,9 @@ public class CircuitCalculator : MonoBehaviour
                 Debug.Log($"Propagating from input {card.name} with value {card.currentValue}");
                 Propagate(card, new HashSet<ARCard>());
             }
+
+        if (LevelManager.Instance != null)
+            LevelManager.Instance.CheckLevelCompletion();
     }
 
     private bool Propagate(ARCard source, HashSet<ARCard> visited)

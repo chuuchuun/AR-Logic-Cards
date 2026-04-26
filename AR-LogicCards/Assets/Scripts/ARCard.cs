@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Vuforia;
 
 public enum CardType
 {
@@ -30,12 +31,28 @@ public class ARCard : MonoBehaviour
     public Material ledOnMaterial;
     public Material ledOffMaterial;
 
+    private ObserverBehaviour observer;
+
     void Start()
     {
         FindPins();
         if (cardType == CardType.Output)
             UpdateLedVisual();
+        observer = GetComponent<ObserverBehaviour>();
+        if (observer == null)
+            observer = GetComponentInParent<ObserverBehaviour>();
     }
+
+    public bool IsTracked
+    {
+        get
+        {
+            if (observer == null) return false;
+            return observer.TargetStatus.Status == Status.TRACKED ||
+                   observer.TargetStatus.Status == Status.EXTENDED_TRACKED;
+        }
+    }
+
 
     private void FindPins()
     {
