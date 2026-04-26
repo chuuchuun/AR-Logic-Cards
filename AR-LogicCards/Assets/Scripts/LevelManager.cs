@@ -25,7 +25,7 @@ public class LevelManager : MonoBehaviour
         if (levels == null || currentLevelIndex >= levels.Count) return false;
         LevelData level = levels[currentLevelIndex];
         if (level.requiredCardNames == null || level.requiredCardNames.Length == 0)
-            return true; // no restriction
+            return true;
         return System.Array.Exists(level.requiredCardNames, name => name == cardName);
     }
 
@@ -57,13 +57,38 @@ public class LevelManager : MonoBehaviour
         Debug.Log($"Loaded level {currentLevelIndex}: {level.levelName}");
     }
 
+    private bool AreAllRequiredCardsUsed()
+    {
+        LevelData level = levels[currentLevelIndex];
+        if (level.requiredCardNames == null || level.requiredCardNames.Length == 0)
+            return true;
+
+        HashSet<string> usedCardNames = new HashSet<string>();
+        foreach (Wire wire in ConnectionManager.Instance.GetAllWires())
+        {
+            usedCardNames.Add(wire.sourcePin.parentCard.name);
+            usedCardNames.Add(wire.targetPin.parentCard.name);
+        }
+
+        foreach (string required in level.requiredCardNames)
+        {
+            if (!usedCardNames.Contains(required))
+                return false;
+        }
+        return true;
+    }
+
     public void LoadNextLevel()
     {
         if (currentLevelIndex + 1 < levels.Count)
             LoadLevel(currentLevelIndex + 1);
         else
+        {
             Debug.Log("All levels completed!");
+            UIManager.Instance?.ShowMessagePopup("Congratulations!", "You finished all levels!");
+        }
     }
+
     public bool ValidateAllowedCards(out string invalidList)
     {
         invalidList = "";
@@ -90,28 +115,21 @@ public class LevelManager : MonoBehaviour
     }
 
     public void CheckLevelCompletion()
-    { 
+    {
         if (levels.Count == 0) return;
         LevelData currentLevel = levels[currentLevelIndex];
 
-        ARCard outputCard = FindOutputCard();
-        if (outputCard == null || !outputCard.currentValue)
-            return;
+        ARCard output = FindOutputCard();
+        if (output == null || !output.currentValue) return;
 
-        if (currentLevel.requiredCardNames != null && currentLevel.requiredCardNames.Length > 0)
+        if (!AreAllRequiredCardsUsed())
         {
-            ARCard[] allCards = FindObjectsOfType<ARCard>();
-            foreach (string requiredName in currentLevel.requiredCardNames)
-            {
-                bool found = System.Array.Exists(allCards, card => card.name == requiredName);
-                if (!found) return;
-            }
+            UIManager.Instance?.ShowMessagePopup("Missing Required Cards",
+                "You haven't used all the required cards for this level. Make sure every specified card is connected in your circuit.");
+            return;
         }
 
-        Debug.Log($"Level {currentLevel.levelName} completed!");
-        if (UIManager.Instance != null)
-            UIManager.Instance.ShowLevelComplete(currentLevel.successMessage);
-
+        UIManager.Instance?.ShowLevelComplete(levels[currentLevelIndex].successMessage);
         Invoke(nameof(LoadNextLevel), 2f);
     }
 

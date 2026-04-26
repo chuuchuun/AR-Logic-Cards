@@ -10,14 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b475a9178ba906440997382f3116eb6c, type: 3}
-  m_Name: Level_02_AND
+  m_Name: Level_06_AND_AND_OR
   m_EditorClassIdentifier: Assembly-CSharp::LevelData
-  levelName: AND Gate
-  description: 'The output must be 1 only when both  inputs are 1. '
-  successMessage: Great! AND gives 1 only when all inputs are 1.
+  levelName: AND-AND-OR
+  description: Four inputs, all set to 1. Build the circuit that gives this result
+    using two ANDs and one OR.
+  successMessage: "Amazing! You mastered multi\u2011gate circuits."
   requiredCardNames:
+  - Input_zero_card
   - Input_one_card
   - Input_one_card_2
+  - Input_one_card_3
   - AND_card
+  - AND_card_2
+  - OR_card
   - Output_card
-  hint: Connect both inputs to the AND gate, then the AND gate to the output.
+  hint: Group the four inputs into two pairs (A&B and C&D). Feed each pair into an
+    AND gate. Then feed both AND outputs into an OR gate.
