@@ -230,11 +230,11 @@ Warstwa integracji sprzętowej:
 kart.
 === Diagramy
 Diagram przypadków użycia (Use Case):
-
+#image("use-case.png")
 
 
 Diagram klas (uproszczony):
-
+#align(center)[#image("class-diagram.png", width: 40%)]
 
 Diagram przepływu danych (Data Flow):
 - Wejście: Kamera (obraz) -> Vuforia (identyfikacja kart) -> Input Handler
@@ -266,6 +266,7 @@ Unity, Visual Studio Code jest darmowe i w pełni funkcjonalne.],
 Aplikacja nie korzysta z zewnętrznej bazy danych SQL. Stan gry przechowywany jest w pamięci RAM w postaci obiektów C\#. Do zapisu/wczytania schematu (opcjonalnie) wykorzystany zostanie format JSON (serializacja/deserializacja obiektów Circuit i Wire), który będzie zapisywany w pliku w katalogu dokumentów aplikacji (Application.persistentDataPath).
 
 === Diagram głównych struktur danych w pamięci
+#image("structures.png")
 
 === Opis kluczowych klas
 - `Circuit`: Klasa kontenerowa. Przechowuje słownik wszystkich komponentów(`Dictionary<\string, Component>`) oraz listę połączeń (`List<Wire>`). Odpowiada za inicjalizację propagacji sygnału.
