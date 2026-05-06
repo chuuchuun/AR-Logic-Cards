@@ -445,8 +445,8 @@ Przeprowadzono testy na rzeczywistych kartach wydrukowanych na matowym papierze,
   [Płynność animacji],[30-40 FPS na obu urządzeniach, brak odczuwalnych spadków.],
   [Tworzenie przewodów],[Gesty tap działają poprawnie, nawet gdy użytkownik trzyma telefon jedną ręką. Podświetlenie pinów ułatwia zrozumienie trybu łączenia.],
   [Usuwanie przewodów],[Długie przytrzymanie na przewodzie niezawodne dla przewodów dłuższych niż 5 cm. Dla bardzo krótkich (np. bezpośrednio między sąsiadującymi kartami) czasami trudno trafić - problem do poprawy w finalnej wersji (zwiększenie grubości kolizji).],
-  [Oświetlenie],[W świetle dziennym i przy biurkowym - rozpoznawanie bardzo dobre. Przy słabym oświetleniu - spadek skuteczności.],
-  [Zużycie baterii],[Po 30 minutach gry: spadek o ok. 15%.]
+  [Oświetlenie],[W świetle dziennym i przy biurkowym oraz na ekranie komputera - rozpoznawanie bardzo dobre. Przy słabym oświetleniu - spadek skuteczności.],
+  [Zużycie baterii],[Po 30 minutach gry: spadek o ok. 15%. Urządzenie - iPhone 15, 3349mah]
 )
 
 === Zidentyfikowane braki (do poprawy w wersji finalnej)
@@ -475,9 +475,15 @@ Następujące funkcjonalności wymagają jeszcze ukończenia lub dopracowania pr
 == Zrzuty ekranu
 
 
-- *Rys. 1* - Ekran główny w trybie AR: widok kamery z kartami `AND` i `OR`, nad nimi modele 3D z pinami, zielony przewód między AND a OR.
+- *Rys. 1* - Ekran główny w trybie AR: widok kamery z kartami `AND` i `OR`, nad nimi modele 3D z pinami, przewód między AND a OR.
+#image("pic-1.jpg")
 - *Rys. 2* - Panel wyboru poziomów: lista poziomów (NOT, AND, OR, AND-OR Chain, NOT-AND, AND-AND-OR).
+#image("pic-2.jpg")
 - *Rys. 3* - Popup informacyjny przed rozpoczęciem poziomu: tytuł poziomu i lista dozwolonych kart.
+#image("pic-3.jpg")
 - *Rys. 4* - Popup błędu „Extra Cards Detected” - wyświetlany gdy użytkownik próbuje użyć karty `AND` w poziomie NOT Gate.
+#image("pic-4.jpg")
 - *Rys. 5* - Popup sukcesu po ukończeniu poziomu: komunikat z przyciskiem „Next Level”.
+#image("pic-5.jpg")
 - *Rys. 6* - Menu hamburger (rozwinięte) z opcjami: Reset Wires, Hint, Allowed Cards.
+#align(center, image("pic-6.jpg", width: 50%))
